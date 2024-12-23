@@ -6,13 +6,13 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stages('Build') { 
             steps {
                 sh 'npm install'
             }
         }
-        stage {
-            stage('Test') {
+        stages {
+            stages('Test') {
                 steps {
                     sh "chmod +x -R ${env.WORKSPACE}"
                     sh './jenkins/scripts/test.sh'
