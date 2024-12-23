@@ -11,5 +11,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage {
+            stage('build'){
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh './jenkins/scripts/test.sh'
+            }
+        }
     }
 }
